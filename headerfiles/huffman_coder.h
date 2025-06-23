@@ -1,9 +1,9 @@
 #pragma once
 
-#include <string>               // For std::string
-#include <unordered_map>       // For std::unordered_map
+#include <string>              
+#include <unordered_map>       
 
-#include "node.h"               // Node definition
+#include "node.h"               
 
 class HuffmanCoder {
     std::unordered_map<char, std::string> codeMap;
