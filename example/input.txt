@@ -1,0 +1,40 @@
+## Huffman Coding File Compressor  Project Overview
+
+During my exploration of data compression techniques, I implemented a Huffman Coding-based file compressor and decompressor in C++. This project was inspired by a curiosity to understand how lossless compression algorithms function at a low level, particularly how bits are managed and how prefix codes reduce redundancy in textual data.
+
+### Objective
+
+The goal was to build a modular, efficient file compression tool from scratch using the Huffman algorithm. The system needed to read a plain text file, analyze character frequencies, generate a binary prefix tree, and produce two outputs:
+
+1. A binary file representing the compressed content
+2. A map file storing character-to-code mappings required for decompression
+
+### Key Features
+
+* **Custom Frequency Counter**: Reads the input file and calculates frequency of each character using a hash map.
+* **Min-Heap Priority Queue**: Utilizes a priority queue to construct the Huffman tree by repeatedly merging the lowest-frequency nodes.
+* **Tree-based Encoding**: Assigns variable-length binary codes to characters based on tree traversal, ensuring a prefix-free structure.
+* **Bit-Level Compression**: Concatenates all encoded bits into a binary stream, adds padding, and writes to a `.bin` file.
+* **Map Serialization**: Writes the encoding map to a human-readable `.txt` file to support external decompression.
+* **Safe Decompression**: Reconstructs the Huffman tree using the map and safely decodes the binary content, restoring the original text.
+
+### Challenges
+
+Implementing bit-level compression and decompression without third-party libraries required careful handling of binary streams, padding, and character encoding. Ensuring decompression matched the original file exactly, including all whitespace and edge characters, was a key challenge I solved through step-by-step verification and a robust testing routine.
+
+### Outcome
+
+The tool achieved 30 to 50% compression on natural language text files without data loss. It can handle arbitrary ASCII text, including large files over 100 KB. It is entirely written in standard C++ with modular components for easy extension or refactoring.
+
+### Skills Demonstrated
+
+* C++ Standard Library (STL)
+* Data structures: trees, maps, priority queues
+* File I/O and binary manipulation
+* Algorithmic problem solving and debugging
+* Modular software design
+
+---
+
+This project helped me understand real-world applications of algorithm design and reinforced the importance of handling edge cases in file systems and low-level data formats. It also served as a strong example of converting theoretical knowledge into practical tools.
+
